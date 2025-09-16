@@ -1,0 +1,7 @@
+{
+  "name": "Plombier Maroc",
+  "description": "A directory website for plumbers in Morocco to list their services and for customers to find and contact them for work.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
