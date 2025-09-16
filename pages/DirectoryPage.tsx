@@ -104,7 +104,7 @@ const DirectoryPage: React.FC<DirectoryPageProps> = ({ plumbers, onRate, isLoadi
         
         // Insert an ad after every 6th plumber
         if ((index + 1) % 6 === 0) {
-            contentWithAds.push(<AdBanner key={`infeed-ad-${index}`} is_infeed={true} adSlot="YOUR_AD_SLOT_ID_INFEED" />);
+            contentWithAds.push(<AdBanner key={`infeed-ad-${index}`} is_infeed={true} />);
         }
       });
 
@@ -192,7 +192,7 @@ const DirectoryPage: React.FC<DirectoryPageProps> = ({ plumbers, onRate, isLoadi
       )}
 
       <div className="mb-8">
-        <AdBanner adSlot="YOUR_AD_SLOT_ID_BANNER" />
+        <AdBanner />
       </div>
 
       {renderContent()}

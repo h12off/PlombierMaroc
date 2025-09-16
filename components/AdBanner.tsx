@@ -8,10 +8,10 @@ declare global {
 
 interface AdBannerProps {
     is_infeed?: boolean;
-    adSlot: string;
+    adSlot?: string;
 }
 
-const AdBanner: React.FC<AdBannerProps> = ({ is_infeed = false, adSlot }) => {
+const AdBanner: React.FC<AdBannerProps> = ({ is_infeed = false, adSlot = "6709710432" }) => {
     useEffect(() => {
         try {
             (window.adsbygoogle = window.adsbygoogle || []).push({});

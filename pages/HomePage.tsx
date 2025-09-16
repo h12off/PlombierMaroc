@@ -50,7 +50,7 @@ const HomePage: React.FC<HomePageProps> = ({ addPlumber }) => {
         </div>
       </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <AdBanner adSlot="YOUR_AD_SLOT_ID_BANNER" />
+        <AdBanner />
       </div>
     </>
   );
