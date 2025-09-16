@@ -273,7 +273,7 @@ const PlumberForm: React.FC<PlumberFormProps> = ({ onSubmit, initialData = EMPTY
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <button type="button" onClick={handleGetLocation} className="w-full flex items-center justify-center gap-2 text-sm font-semibold border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 py-3 px-4 rounded-lg transition shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-60 disabled:cursor-not-allowed" disabled={locationStatus === 'fetching'}>
+            <button type="button" onClick={handleGetLocation} className="w-full flex items-center justify-center gap-2 text-sm font-semibold border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 py-3 px-4 rounded-lg transition shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-60 disabled:cursor-not-allowed animate-flash-red" disabled={locationStatus === 'fetching'}>
                 <CrosshairIcon className="w-5 h-5" />
                 <span>{t('form.getLocationButton')}</span>
             </button>

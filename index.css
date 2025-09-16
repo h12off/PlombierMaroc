@@ -1,0 +1,14 @@
+@keyframes flash-red {
+  0%, 100% {
+    border-color: #f87171; /* red-400 */
+    box-shadow: 0 0 5px #f87171;
+  }
+  50% {
+    border-color: #ef4444; /* red-500 */
+    box-shadow: 0 0 15px #ef4444;
+  }
+}
+
+.animate-flash-red {
+  animation: flash-red 1.5s infinite;
+}
