@@ -22,7 +22,7 @@ const HomePage: React.FC<HomePageProps> = ({ addPlumber }) => {
       >
         <div className="absolute inset-0 bg-black/60"></div>
         
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center" style={{ backgroundImage: "url('https://i.postimg.cc/MGSK6MSt/Whisk-9d26e254b6719feaaf047fd9419fc6d3dr.jpg')" }}>
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center" style={{ backgroundImage: "url('/Whisk_9d26e254b6719feaaf047fd9419fc6d3dr.jpeg')" }}>
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl lg:text-5xl font-extrabold text-white leading-tight">
               {titleParts.length === 3 ? (
