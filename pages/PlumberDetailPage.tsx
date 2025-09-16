@@ -187,7 +187,7 @@ const PlumberDetailPage: React.FC<PlumberDetailPageProps> = ({ plumber, onBack, 
               <CommentList comments={comments} />
           )}
           <div className="my-8">
-            <AdBanner />
+            <AdBanner adSlot="7629423321" />
           </div>
           <CommentForm onCommentSubmit={handleAddComment} />
       </div>
