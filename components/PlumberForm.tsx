@@ -106,6 +106,14 @@ const PlumberForm: React.FC<PlumberFormProps> = ({ onSubmit, initialData = EMPTY
           if (data && data.display_name) {
             setAddress(data.display_name);
             addToast(t('form.addressFoundSuccess'), 'success');
+
+            if (data.address && data.address.city) {
+              const fetchedCity = data.address.city;
+              if (MOROCCAN_CITIES.includes(fetchedCity)) {
+                setCity(fetchedCity);
+                addToast(t('form.cityFoundSuccess', { city: fetchedCity }), 'success');
+              }
+            }
           } else {
             addToast(t('form.addressNotFound'), 'warning');
           }
