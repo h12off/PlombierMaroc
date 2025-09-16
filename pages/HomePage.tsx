@@ -19,10 +19,11 @@ const HomePage: React.FC<HomePageProps> = ({ addPlumber }) => {
     <>
       <div 
         className="relative min-h-[calc(100vh-64px)] flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/assets/images/Whisk_9d26e254b6719feaaf047fd9419fc6d3dr.jpeg')" }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
         
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center" style={{ backgroundImage: "url('/assets/images/Whisk_9d26e254b6719feaaf047fd9419fc6d3dr.jpeg')" }}>
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl lg:text-5xl font-extrabold text-white leading-tight">
               {titleParts.length === 3 ? (
