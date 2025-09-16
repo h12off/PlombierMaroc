@@ -192,7 +192,7 @@ const DirectoryPage: React.FC<DirectoryPageProps> = ({ plumbers, onRate, isLoadi
       )}
 
       <div className="mb-8">
-        <AdBanner />
+        <AdBanner adSlot="6807242344" />
       </div>
 
       {renderContent()}
