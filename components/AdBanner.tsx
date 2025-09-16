@@ -1,25 +1,37 @@
+import React, { useEffect } from 'react';
 
-import React from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
+declare global {
+    interface Window {
+        adsbygoogle: any;
+    }
+}
 
 interface AdBannerProps {
     is_infeed?: boolean;
+    adSlot: string;
 }
 
-const AdBanner: React.FC<AdBannerProps> = ({ is_infeed = false }) => {
-    const { t } = useLanguage();
-    
-    const bannerClasses = is_infeed 
-        ? "w-full h-full min-h-[300px] flex items-center justify-center p-4 bg-gray-100 border border-dashed border-gray-300 rounded-xl"
-        : "w-full min-h-[90px] flex items-center justify-center p-4 bg-gray-100 border border-dashed border-gray-300 rounded-lg";
+const AdBanner: React.FC<AdBannerProps> = ({ is_infeed = false, adSlot }) => {
+    useEffect(() => {
+        try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+            console.error("Adsense error: ", e);
+        }
+    }, []);
 
+    const bannerClasses = is_infeed
+        ? "w-full h-full min-h-[300px] flex items-center justify-center p-4 bg-gray-100 rounded-xl"
+        : "w-full min-h-[90px] flex items-center justify-center p-4 bg-gray-100 rounded-lg";
 
     return (
         <div className={bannerClasses}>
-            <div className="text-center">
-                <p className="text-gray-500 font-semibold">{t('common.advertisement')}</p>
-                <p className="text-xs text-gray-400 mt-1">Ad Placement</p>
-            </div>
+            <ins className="adsbygoogle"
+                style={{ display: 'block', width: '100%', height: '100%' }}
+                data-ad-client="ca-pub-6987889246292686"
+                data-ad-slot={adSlot}
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
         </div>
     );
 };
