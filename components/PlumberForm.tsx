@@ -85,19 +85,40 @@ const PlumberForm: React.FC<PlumberFormProps> = ({ onSubmit, initialData = EMPTY
   const handleGetLocation = () => {
     if (!navigator.geolocation) {
       setLocationStatus('error');
+      addToast(t('form.locationNotSupported'), 'error');
       return;
     }
     setLocationStatus('fetching');
     navigator.geolocation.getCurrentPosition(
-      (position) => {
+      async (position) => {
+        const { latitude, longitude } = position.coords;
         setLocation({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
+          lat: latitude,
+          lng: longitude,
         });
+
+        try {
+          const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          if (data && data.display_name) {
+            setAddress(data.display_name);
+            addToast(t('form.addressFoundSuccess'), 'success');
+          } else {
+            addToast(t('form.addressNotFound'), 'warning');
+          }
+        } catch (error) {
+          console.error('Error fetching address:', error);
+          addToast(t('form.addressFetchError'), 'error');
+        }
+
         setLocationStatus('success');
       },
       () => {
         setLocationStatus('error');
+        addToast(t('form.locationPermissionDenied'), 'error');
       }
     );
   };
